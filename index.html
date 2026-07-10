@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>Полурывок 2026 — два онлайн-турнира. Заявка за две минуты</title>
+<meta name="description" content="Два открытых онлайн-турнира по рывку гирь старым стилем (полурывку). 10 минут работы, 9 групп, помост у вас дома. Регистрация до 1 августа 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: only light;
+  --paper:#efe7d8;
+  --paper2:#e7dcc7;
+  --ink:#16130e;
+  --red:#d5281e;
+  --red-dark:#a91b13;
+  --iron:#2b2823;
+  --line:#cfc3ab;
+  --ok:#1d6f3a;
+  --disp:'Oswald',sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--ink);color:var(--paper);line-height:1.55;font-size:16px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+::selection{background:var(--red);color:#fff}
+
+/* ── Бегущая строка ─────────────────────────────── */
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;border-bottom:4px solid var(--red)}
+.marquee-track{display:inline-block;padding:9px 0;animation:run 28s linear infinite;
+  font-family:var(--disp);font-weight:500;font-size:14px;letter-spacing:.18em;text-transform:uppercase}
+.marquee-track b{color:#ff6a5e;font-weight:700}
+.marquee-track .dot{color:var(--red);margin:0 18px}
+@keyframes run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .marquee-track{animation:none;padding-left:20px}
+}
+
+/* ── Герой-афиша ────────────────────────────────── */
+header.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--paper);border-bottom:5px solid var(--red)}
+header.hero::before{ /* красный луч по диагонали */
+  content:"";position:absolute;inset:-20% -10%;
+  background:linear-gradient(24deg, transparent 55.5%, var(--red) 55.5%, var(--red) 72%, transparent 72%);
+  pointer-events:none;
+}
+.hero-in{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;padding:56px 0 50px}
+.kicker{
+  display:inline-block;background:var(--red);color:#fff;
+  font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+  padding:7px 14px;margin-bottom:20px;transform:rotate(-1.2deg);
+}
+h1.title{
+  font-family:var(--disp);font-weight:700;text-transform:uppercase;
+  font-size:clamp(64px,12.5vw,150px);line-height:.88;letter-spacing:.005em;
+}
+h1.title{color:#ffffff}
+h1.title .l2{display:block;color:var(--red);-webkit-text-stroke:2px var(--red)}
+.hero-sub{
+  max-width:470px;margin-top:24px;font-size:17.5px;font-weight:500;line-height:1.5;color:#f5efe2;
+}
+.hero-sub b{background:var(--red);color:#fff;padding:1px 7px;white-space:nowrap}
+.cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;font-family:var(--disp);font-weight:600;font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  padding:15px 30px;border:3px solid var(--ink);color:var(--ink);background:transparent;
+  transition:transform .1s ease, background .12s ease, color .12s ease;
+}
+.btn:active{transform:translate(2px,2px)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.hero .btn.primary{border-color:var(--paper);box-shadow:6px 6px 0 var(--paper)}
+section .btn.primary,form .btn.primary{border-color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.btn.primary:hover{background:var(--red-dark)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.hero .btn.ghost{border-color:#f5efe2;color:#f5efe2}
+.hero .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+
+/* SVG-гиря */
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-art svg{width:min(360px,80vw);height:auto;filter:drop-shadow(10px 12px 0 rgba(213,40,30,.85))}
+.hero-stamp{
+  position:absolute;right:2%;top:-4%;width:110px;height:110px;border-radius:50%;
+  border:3px solid var(--red);background:var(--paper);box-shadow:4px 4px 0 var(--red);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--disp);text-transform:uppercase;transform:rotate(9deg);
+}
+.hero-stamp .n{font-size:34px;font-weight:700;line-height:1;color:var(--red)}
+.hero-stamp .t{font-size:11px;font-weight:600;letter-spacing:.14em}
+
+/* ── Манифест ───────────────────────────────────── */
+.manifest{border-bottom:5px solid var(--red);background:#211d17}
+.manifest .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.mi{padding:26px 26px 26px 0;border-right:3px solid #efe7d8}
+.mi:last-child{border-right:none}
+.mi + .mi{padding-left:26px}
+.mi .h{font-family:var(--disp);font-weight:700;font-size:24px;text-transform:uppercase;line-height:1.05;margin-bottom:8px;color:#ffffff}
+.mi .h em{font-style:normal;color:#ff6a5e}
+.mi p{font-size:15px;color:#e6ddc9}
+
+/* ── Секции ─────────────────────────────────────── */
+section{padding:64px 0}
+h2.sec{
+  font-family:var(--disp);font-weight:700;text-transform:uppercase;
+  font-size:clamp(34px,5.5vw,58px);line-height:.95;color:#ffffff;
+}
+h2.sec .red{color:var(--red)}
+.sec-sub{margin:16px 0 34px;max-width:560px;font-size:16.5px;font-weight:500;color:#f5efe2}
+
+/* ── Форма ──────────────────────────────────────── */
+.reg-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
+form.card,.aside-card{background:#fbf7ee;border:3px solid var(--ink);padding:30px;box-shadow:8px 8px 0 var(--red);color:var(--ink)}
+.fld{margin-bottom:18px}
+.fld label{display:block;font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.fld label .req{color:var(--red)}
+.fld input[type=text],.fld input[type=email],.fld input[type=tel],
+.fld input[type=date],.fld input[type=number],.fld select{
+  width:100%;padding:12px 14px;border:2px solid var(--ink);border-radius:0;
+  font:inherit;font-size:15.5px;background:#fff;color:var(--ink);
+}
+.fld input:focus,.fld select:focus{outline:3px solid var(--red);outline-offset:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hint{font-size:13px;color:#4a4436;margin-top:6px}
+.hint.warn{color:var(--red-dark);font-weight:700}
+.hint.good{color:var(--ok);font-weight:700}
+
+/* Выбор турниров */
+.t-cards{display:grid;gap:10px}
+.t-card{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  border:2px solid var(--ink);background:#fff;padding:14px 16px;cursor:pointer;user-select:none;
+  transition:background .1s ease;
+}
+.t-card:hover{background:var(--paper)}
+.t-card.sel{background:var(--ink);color:var(--paper)}
+.t-card .t-name{font-weight:600;font-size:14.5px;display:flex;gap:11px;align-items:center}
+.t-card .t-check{width:20px;height:20px;border:2px solid var(--ink);flex:none;position:relative;background:#fff}
+.t-card.sel .t-check{border-color:var(--paper)}
+.t-card.sel .t-check::after{content:"✕";position:absolute;inset:0;color:var(--red);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.t-card .t-fee{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--red);white-space:nowrap}
+.t-card.sel .t-fee{color:#ff6a5e}
+
+/* Блок оплаты */
+.pay{border:3px solid var(--red);background:#fff;padding:20px;margin-bottom:18px}
+.pay h4{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-dark);margin-bottom:10px}
+.pay .pay-total{font-family:var(--disp);font-weight:600;font-size:19px;margin-bottom:10px}
+.pay .pay-card-num{
+  font-variant-numeric:tabular-nums;font-weight:700;font-size:20px;letter-spacing:.07em;
+  background:var(--ink);color:var(--paper);padding:9px 14px;display:inline-block;margin:4px 0 8px;
+}
+.pay .qr-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.pay .qr-item{text-align:center;font-size:12.5px;font-weight:600}
+.pay .qr-item img{width:132px;height:132px;border:2px solid var(--ink);background:#fff;display:block;margin-bottom:6px}
+.pay p{font-size:13.5px;margin-bottom:6px}
+
+/* Клейма веса гирь */
+.kb-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.kb-badge{
+  --sz:54px;width:var(--sz);height:var(--sz);border-radius:50%;
+  border:3px solid var(--ink);background:radial-gradient(circle at 32% 28%, #4a453d, var(--iron) 68%);
+  color:#efe7d8;font-family:var(--disp);font-weight:600;font-size:17px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;user-select:none;
+  box-shadow:inset 0 -4px 6px rgba(0,0,0,.5), 3px 3px 0 var(--ink);
+  transition:transform .1s ease;
+}
+.kb-badge::after{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  width:24px;height:10px;border:3px solid var(--ink);border-bottom:none;border-radius:12px 12px 0 0}
+.kb-badge:hover{transform:translate(-1px,-2px)}
+.kb-badge.sel{background:radial-gradient(circle at 32% 28%, #ef4437, var(--red-dark) 70%)}
+.kb-badge.dis{opacity:.25;cursor:not-allowed;transform:none;box-shadow:none}
+.kb-badge small{font-size:8.5px;font-weight:600;position:absolute;bottom:8px;opacity:.75}
+
+.consents{border-top:3px solid var(--ink);margin-top:10px;padding-top:18px;display:grid;gap:12px}
+.consents label{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;font-weight:500;cursor:pointer}
+.consents input{margin-top:3px;accent-color:var(--red);width:17px;height:17px;flex:none}
+.consents a{color:var(--red-dark);font-weight:700}
+
+.submit-row{margin-top:24px}
+.submit-row .btn{width:100%;text-align:center}
+.form-msg{margin-top:14px;padding:14px 16px;font-weight:600;display:none;font-size:14.5px;border:2px solid}
+.form-msg.ok{display:block;background:#e9f3ec;color:var(--ok);border-color:var(--ok)}
+.form-msg.err{display:block;background:#fbeae8;color:var(--red-dark);border-color:var(--red-dark)}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+
+/* Справочные таблицы */
+.aside-card h3{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+table.ref{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+table.ref th{background:var(--ink);color:var(--paper);text-align:left;padding:8px 9px;font-family:var(--disp);font-weight:500;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
+table.ref td{padding:7px 9px;border-bottom:1px solid var(--line)}
+table.ref tr:nth-child(even) td{background:#f3edde}
+.note{font-size:12.5px;color:#665f52;margin-top:10px}
+.aside-card + .aside-card{margin-top:26px}
+
+/* ── Участники ──────────────────────────────────── */
+#participants{background:#211d17;color:var(--paper);border-top:5px solid var(--red);border-bottom:5px solid var(--red)}
+#participants h2.sec .red{color:#ff6a5e}
+#participants .sec-sub{color:#f5efe2}
+.count-line{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.count-num{font-family:var(--disp);font-weight:700;font-size:88px;color:var(--red);line-height:.9}
+.count-cap{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:14px;color:#ffffff}
+table.plist{width:100%;border-collapse:collapse;font-size:14.5px;font-variant-numeric:tabular-nums}
+table.plist th{border-bottom:3px solid var(--red);text-align:left;padding:10px;font-family:var(--disp);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#ffffff}
+table.plist td{padding:10px;border-bottom:1px solid #4a4438;color:#ffffff}
+.plist-empty{color:#f5efe2;padding:26px 0;font-size:15.5px}
+.tbl-scroll{overflow-x:auto}
+
+/* Организаторы */
+.org-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.org-card{
+  background:#fbf7ee;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--red);
+  padding:20px 16px;text-decoration:none;color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;
+  text-align:center;transition:transform .1s ease;
+}
+.org-card:hover{transform:translate(-2px,-2px)}
+.org-card img{max-height:64px;max-width:100%;object-fit:contain}
+.org-card span{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
+
+footer{padding:38px 0 52px;color:#cfc5b0;font-size:13.5px}
+footer a{color:#ff6a5e;font-weight:700}
+.orgs{margin-top:8px;line-height:1.9}
+
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;padding:44px 0 40px}
+  .hero-art{order:-1;margin-bottom:10px}
+  .hero-art svg{width:min(240px,60vw)}
+  .hero-stamp{width:92px;height:92px;right:6%}
+  .hero-stamp .n{font-size:28px}
+  .manifest .wrap{grid-template-columns:1fr}
+  .mi{border-right:none;border-bottom:3px solid #efe7d8;padding:20px 0}
+  .mi + .mi{padding-left:0}
+  .mi:last-child{border-bottom:none}
+  .reg-grid,.two{grid-template-columns:1fr}
+  .count-num{font-size:56px}
+  form.card,.aside-card{padding:22px;box-shadow:5px 5px 0 var(--red)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Регистрация — <b>до 1 августа</b><span class="dot">◆</span>Видео — <b>до 23 августа</b><span class="dot">◆</span>Два турнира<span class="dot">◆</span>Десять минут<span class="dot">◆</span>Девять групп<span class="dot">◆</span>Помост — у вас дома<span class="dot">◆</span></span><span>Регистрация — <b>до 1 августа</b><span class="dot">◆</span>Видео — <b>до 23 августа</b><span class="dot">◆</span>Два турнира<span class="dot">◆</span>Десять минут<span class="dot">◆</span>Девять групп<span class="dot">◆</span>Помост — у вас дома<span class="dot">◆</span></span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker">Открытые онлайн-турниры · 2026</span>
+      <h1 class="title">Полу<span class="l2">рывок</span></h1>
+      <p class="hero-sub">Два турнира по рывку гирь старым стилем: ко <b>Дню физкультурника</b> и к <b>141-летию гиревого спорта</b>. Десять минут работы, судейство по видео. Гиря не спросит, готовы ли вы.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#reg">Заявиться</a>
+        <a class="btn ghost" href="#participants">Кто уже в деле</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-stamp"><span class="n">10</span><span class="t">минут</span></div>
+      <svg viewBox="0 0 400 430" role="img" aria-label="Чугунная гиря с клеймом 2026">
+        <defs>
+          <radialGradient id="iron" cx="34%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#57524a"/>
+            <stop offset="45%" stop-color="#2b2823"/>
+            <stop offset="100%" stop-color="#16130e"/>
+          </radialGradient>
+          <radialGradient id="ironH" cx="40%" cy="20%" r="90%">
+            <stop offset="0%" stop-color="#4a453d"/>
+            <stop offset="100%" stop-color="#1c1914"/>
+          </radialGradient>
+        </defs>
+        <!-- дужка -->
+        <path d="M110 150 C110 45, 290 45, 290 150 L252 150 C252 88, 148 88, 148 150 Z"
+              fill="url(#ironH)" stroke="#efe7d8" stroke-width="8" stroke-linejoin="round"/>
+        <!-- тело -->
+        <circle cx="200" cy="272" r="150" fill="url(#iron)" stroke="#efe7d8" stroke-width="8"/>
+        <!-- срез основания -->
+        <path d="M96 380 L304 380 L286 414 L114 414 Z" fill="#efe7d8"/>
+        <!-- блик -->
+        <ellipse cx="146" cy="212" rx="44" ry="66" fill="#6a645a" opacity=".35" transform="rotate(-24 146 212)"/>
+        <!-- клеймо -->
+        <circle cx="200" cy="272" r="74" fill="none" stroke="#efe7d8" stroke-width="5"/>
+        <text x="200" y="286" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="52" letter-spacing="2" fill="#efe7d8">2026</text>
+        <text x="200" y="316" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="500" font-size="17" letter-spacing="7" fill="#d5281e">ПОЛУРЫВОК</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="manifest">
+  <div class="wrap">
+    <div class="mi">
+      <div class="h">Заявка — <em>2 минуты</em></div>
+      <p>Без справок, федераций и очередей. Форма сама посчитает вашу группу и весовую категорию.</p>
+    </div>
+    <div class="mi">
+      <div class="h">Все — <em>от 18 до 75+</em></div>
+      <p>Девять групп по возрасту. Вес гирь честный: легче нормы форма просто не даст выбрать.</p>
+    </div>
+    <div class="mi">
+      <div class="h">Помост — <em>ваш зал</em></div>
+      <p>Взвесились в кадре, отработали десять минут, отправили видео. Судьи посчитают каждый подъём.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── Регистрация ─────────── -->
+<section id="reg">
+  <div class="wrap">
+    <h2 class="sec">Заявка<span class="red">.</span></h2>
+    <p class="sec-sub">Две минуты на форму — и вы в протоколе. Дальше самое трудное: тренироваться.</p>
+
+    <div class="reg-grid">
+      <form class="card" id="regForm" novalidate>
+        <div class="fld">
+          <label>Выберите турнир(ы) <span class="req">*</span></label>
+          <div class="t-cards" id="tCards"></div>
+          <div class="hint">Данные заявки общие — можно заявиться на один турнир или на оба сразу. Взнос оплачивается по каждому турниру отдельно.</div>
+        </div>
+
+        <div class="fld">
+          <label for="fio">Фамилия, имя, отчество <span class="req">*</span></label>
+          <input type="text" id="fio" name="fio" autocomplete="name" placeholder="Иванов Иван Иванович" required>
+        </div>
+
+        <div class="two">
+          <div class="fld">
+            <label for="birthDate">Дата рождения <span class="req">*</span></label>
+            <input type="date" id="birthDate" name="birthDate" required>
+            <div class="hint" id="ageHint"></div>
+          </div>
+          <div class="fld">
+            <label for="gender">Пол <span class="req">*</span></label>
+            <select id="gender" name="gender" required>
+              <option value="">— выберите —</option>
+              <option value="М">Мужской</option>
+              <option value="Ж">Женский</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="fld">
+            <label for="group">Группа <span class="req">*</span></label>
+            <select id="group" name="group" required>
+              <option value="">— выберите —</option>
+            </select>
+            <div class="hint" id="groupHint">Разрешается заявляться в более младшую группу (с меньшим номером).</div>
+          </div>
+          <div class="fld">
+            <label for="bodyWeight">Собственный вес, кг <span class="req">*</span></label>
+            <input type="number" id="bodyWeight" name="bodyWeight" min="30" max="200" step="0.1" placeholder="80.0" required>
+            <div class="hint" id="catHint"></div>
+          </div>
+        </div>
+
+        <div class="fld">
+          <label>Вес гирь, кг <span class="req">*</span></label>
+          <div class="kb-badges" id="kbBadges"></div>
+          <input type="hidden" id="kbWeight" name="kbWeight">
+          <div class="hint" id="kbHint">Выберите клеймо. Минимальный вес зависит от группы и пола.</div>
+        </div>
+
+        <div class="two">
+          <div class="fld">
+            <label for="city">Страна, город <span class="req">*</span></label>
+            <input type="text" id="city" name="city" placeholder="Россия, Москва" required>
+          </div>
+          <div class="fld">
+            <label for="club">Клуб / команда</label>
+            <input type="text" id="club" name="club" placeholder="необязательно">
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="fld">
+            <label for="email">Эл. почта <span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@mail.ru" required>
+            <div class="hint">Пришлём подтверждение и реквизиты — и больше ничего.</div>
+          </div>
+          <div class="fld">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 ___ ___-__-__">
+          </div>
+        </div>
+
+        <div class="fld">
+          <label for="postAddress">Почтовый адрес</label>
+          <input type="text" id="postAddress" name="postAddress" placeholder="индекс, город, улица, дом, квартира">
+          <div class="hint">Нужен для отправки наград призёрам.</div>
+        </div>
+
+        <div class="pay" id="payBox" style="display:none"></div>
+
+        <div class="hp" aria-hidden="true">
+          <label>Не заполняйте это поле<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="consents">
+          <label><input type="checkbox" id="consentPd" required>
+            <span>Даю согласие на обработку моих персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a> (152-ФЗ) <span class="req">*</span></span></label>
+          <label><input type="checkbox" id="consentHealth" required>
+            <span>Беру на себя ответственность за свою жизнь и здоровье при выполнении соревновательного задания <span class="req">*</span></span></label>
+          <label><input type="checkbox" id="consentPublic" checked>
+            <span>Согласен(на) на публикацию ФИО, города, группы и веса гирь в открытом списке участников</span></label>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn primary" id="submitBtn">Отправить заявку</button>
+        </div>
+        <div class="form-msg" id="formMsg" role="status"></div>
+      </form>
+
+      <div>
+        <div class="aside-card">
+          <h3>Группы и минимальный вес гирь</h3>
+          <div class="tbl-scroll">
+          <table class="ref">
+            <thead><tr><th>№</th><th>Мужчины</th><th>Женщины</th><th>Мин. М</th><th>Мин. Ж</th></tr></thead>
+            <tbody id="groupsTable"></tbody>
+          </table>
+          </div>
+          <p class="note">Вес гирь — минимальный для группы. Выступать в более младшей группе разрешается.</p>
+        </div>
+        <div class="aside-card">
+          <h3>Весовые категории</h3>
+          <table class="ref">
+            <thead><tr><th>Участники</th><th>Открытая группа</th><th>Ветераны</th></tr></thead>
+            <tbody>
+              <tr><td>Мужчины</td><td>до 80 кг и свыше 80 кг*</td><td>без категорий</td></tr>
+              <tr><td>Женщины</td><td>до 64 кг и свыше 64 кг*</td><td>без категорий</td></tr>
+            </tbody>
+          </table>
+          <p class="note">* Деление применяется, если в категории не менее трёх спортсменов.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── Участники ─────────── -->
+<section id="participants">
+  <div class="wrap">
+    <h2 class="sec">Кто уже в деле<span class="red">.</span></h2>
+    <p class="sec-sub">Эти люди уже заявились. Гиря ждёт всех одинаково.</p>
+    <div class="count-line">
+      <span class="count-num" id="pCount">—</span>
+      <span class="count-cap">человек в протоколе</span>
+    </div>
+    <div class="tbl-scroll">
+      <table class="plist" id="pTable" style="display:none">
+        <thead><tr><th>№</th><th>ФИО</th><th>Город</th><th>Группа</th><th>Гири</th><th>Категория</th><th>Турнир</th></tr></thead>
+        <tbody id="pBody"></tbody>
+      </table>
+    </div>
+    <div class="plist-empty" id="pEmpty">Список загружается…</div>
+  </div>
+</section>
+
+<!-- ─────────── Организаторы ─────────── -->
+<section id="orgs">
+  <div class="wrap">
+    <h2 class="sec">Организаторы<span class="red">.</span></h2>
+    <p class="sec-sub">Пять команд, которые делают гиревой спорт ближе. Логотип кликабелен — заходите в гости.</p>
+    <div class="org-grid">
+      <a class="org-card" href="https://www.facebook.com/profile.php?id=100009722704723" target="_blank" rel="noopener">
+        <img src="logos/logo_100pudov.png" alt="" onerror="this.remove()">
+        <span>Калининградский гиревой клуб «СТО ПУДОВ»</span>
+      </a>
+      <a class="org-card" href="https://vk.com/rudnev_32" target="_blank" rel="noopener">
+        <img src="logos/logo_rudnev.png" alt="" onerror="this.remove()">
+        <span>Гиревая онлайн-академия «Rudnev &amp; Kettlebells»</span>
+      </a>
+      <a class="org-card" href="https://vk.ru/kgk_100_pudov" target="_blank" rel="noopener">
+        <img src="logos/logo_rlgm.png" alt="" onerror="this.remove()">
+        <span>Российская лига гиревых марафонов</span>
+      </a>
+      <a class="org-card" href="https://vk.ru/club223550726" target="_blank" rel="noopener">
+        <img src="logos/logo_pud.png" alt="" onerror="this.remove()">
+        <span>Бюро рекордов «Путь Уникальных Достижений»</span>
+      </a>
+      <a class="org-card" href="https://vk.ru/firesafetyexpert" target="_blank" rel="noopener">
+        <img src="logos/logo_fse.png" alt="" onerror="this.remove()">
+        <span>FSE — ПожСпецЭксперт</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><a href="privacy.html">Политика конфиденциальности</a> · Вопросы по регистрации: <a href="mailto:sg@fsegas.com">sg@fsegas.com</a> — отвечаем как люди, а не как робот.</p>
+  </div>
+</footer>
+
+<script>
+/* ════════ НАСТРОЙКА ════════
+   Вставьте сюда URL веб-приложения Google Apps Script
+   (инструкция в README.md, шаг 2) */
+const APPS_SCRIPT_URL = "ВСТАВЬТЕ_URL_ВЕБ_ПРИЛОЖЕНИЯ";
+
+const EVENT_DATE = new Date("2026-08-08");        // дата турнира (возраст считается на неё)
+
+/* Турниры: заявка общая, взнос и QR — свои у каждого */
+const TOURNAMENTS = [
+  { id:"ФИЗК", name:"Ко Всероссийскому дню физкультурника", fee:2000, qr:"qr/qr-fizkulturnik.png" },
+  { id:"141",  name:"К 141-й годовщине гиревого спорта",    fee:4000, qr:"qr/qr-141.png" }
+];
+const PAY_CARD   = "2202 2061 5850 1465";
+const PAY_HOLDER = "Сбербанк, держатель — Сергей Леонидович Р.";
+const PAY_NOTE   = "Чек об оплате отправьте в Max по номеру +7 914 567-94-82 или на rsl32@mail.ru, указав своё ФИО.";
+const KB_WEIGHTS = [4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36];
+
+/* Группы по положению: [возраст М, возраст Ж, мин. гиря М, мин. гиря Ж] */
+const GROUPS = [
+  {n:1, m:"Открытая — любой возраст", f:"Открытая — любой возраст", mFrom:0,  fFrom:0,  minM:28, minF:20},
+  {n:2, m:"40–44 года",  f:"35–39 лет",  mFrom:40, fFrom:35, minM:26, minF:18},
+  {n:3, m:"45–49 лет",   f:"40–44 года", mFrom:45, fFrom:40, minM:24, minF:16},
+  {n:4, m:"50–54 года",  f:"45–49 лет",  mFrom:50, fFrom:45, minM:22, minF:14},
+  {n:5, m:"55–59 лет",   f:"50–54 года", mFrom:55, fFrom:50, minM:20, minF:12},
+  {n:6, m:"60–64 года",  f:"55–59 лет",  mFrom:60, fFrom:55, minM:18, minF:10},
+  {n:7, m:"65–69 лет",   f:"60–64 года", mFrom:65, fFrom:60, minM:16, minF:8},
+  {n:8, m:"70–74 года",  f:"65–69 лет",  mFrom:70, fFrom:65, minM:14, minF:6},
+  {n:9, m:"75 лет и старше", f:"70 лет и старше", mFrom:75, fFrom:70, minM:12, minF:4},
+];
+
+/* ── Справочная таблица групп ── */
+document.getElementById("groupsTable").innerHTML = GROUPS.map(g =>
+  `<tr><td><b>${g.n}</b></td><td>${g.m}</td><td>${g.f}</td><td>${g.minM} кг</td><td>${g.minF} кг</td></tr>`).join("");
+
+/* ── Селект групп ── */
+const groupSel = document.getElementById("group");
+GROUPS.forEach(g=>{
+  const o = document.createElement("option");
+  o.value = g.n;
+  o.textContent = `Группа ${g.n}` + (g.n===1 ? " — открытая" : ` — ветераны (М ${g.m} / Ж ${g.f})`);
+  groupSel.appendChild(o);
+});
+
+/* ── Выбор турниров + блок оплаты ── */
+const tWrap = document.getElementById("tCards");
+const payBox = document.getElementById("payBox");
+const selectedT = new Set();
+TOURNAMENTS.forEach(t=>{
+  const c = document.createElement("div");
+  c.className = "t-card"; c.tabIndex = 0;
+  c.setAttribute("role","checkbox"); c.setAttribute("aria-checked","false");
+  c.innerHTML = `<span class="t-name"><span class="t-check"></span>${t.name}</span><span class="t-fee">${t.fee.toLocaleString("ru-RU")} ₽</span>`;
+  const toggle = ()=>{
+    if(selectedT.has(t.id)) selectedT.delete(t.id); else selectedT.add(t.id);
+    c.classList.toggle("sel", selectedT.has(t.id));
+    c.setAttribute("aria-checked", selectedT.has(t.id));
+    renderPay();
+  };
+  c.addEventListener("click", toggle);
+  c.addEventListener("keydown", e=>{ if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle();} });
+  tWrap.appendChild(c);
+});
+
+function renderPay(){
+  const sel = TOURNAMENTS.filter(t=>selectedT.has(t.id));
+  if(!sel.length){ payBox.style.display="none"; payBox.innerHTML=""; return; }
+  const total = sel.reduce((s,t)=>s+t.fee,0);
+  payBox.innerHTML =
+    `<h4>Стартовый взнос</h4>
+     <div class="pay-total">К оплате: ${total.toLocaleString("ru-RU")} ₽ ${sel.length>1?"(двумя отдельными переводами по каждому турниру)":""}</div>
+     <p>Перевод на карту:</p>
+     <div class="pay-card-num">${PAY_CARD}</div>
+     <p>${PAY_HOLDER}</p>
+     <p><b>Важно:</b> у каждого турнира свой QR-код — оплачивайте по QR выбранного турнира.</p>
+     <div class="qr-row">` +
+     sel.map(t=>`<div class="qr-item"><img src="${t.qr}" alt="QR — ${esc(t.name)}" onerror="this.style.display='none'">${esc(t.name)}<br><b>${t.fee.toLocaleString("ru-RU")} ₽</b></div>`).join("") +
+     `</div>
+     <p style="margin-top:12px">${PAY_NOTE}</p>`;
+  payBox.style.display = "";
+}
+
+/* ── Клейма веса гирь ── */
+const kbWrap = document.getElementById("kbBadges");
+const kbInput = document.getElementById("kbWeight");
+KB_WEIGHTS.forEach(w=>{
+  const b = document.createElement("div");
+  b.className = "kb-badge"; b.dataset.w = w; b.tabIndex = 0;
+  b.setAttribute("role","radio"); b.setAttribute("aria-label", w + " килограммов");
+  b.innerHTML = `${w}<small>КГ</small>`;
+  const pick = ()=>{ if(b.classList.contains("dis")) return;
+    kbWrap.querySelectorAll(".kb-badge").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel"); kbInput.value = w; refreshHints(); };
+  b.addEventListener("click", pick);
+  b.addEventListener("keydown", e=>{ if(e.key===" "||e.key==="Enter"){e.preventDefault();pick();} });
+  kbWrap.appendChild(b);
+});
+
+/* ── Логика ── */
+const $ = id => document.getElementById(id);
+
+function ageAtEvent(){
+  const v = $("birthDate").value; if(!v) return null;
+  const d = new Date(v);
+  let a = EVENT_DATE.getFullYear() - d.getFullYear();
+  const m = EVENT_DATE.getMonth() - d.getMonth();
+  if (m < 0 || (m === 0 && EVENT_DATE.getDate() < d.getDate())) a--;
+  return a;
+}
+function matchedGroup(age, gender){
+  if(age==null || !gender) return null;
+  let best = 1;
+  GROUPS.forEach(g=>{ const from = gender==="М" ? g.mFrom : g.fFrom; if(age >= from) best = g.n; });
+  return best;
+}
+function minKb(groupN, gender){
+  const g = GROUPS.find(x=>x.n===+groupN); if(!g||!gender) return null;
+  return gender==="М" ? g.minM : g.minF;
+}
+function category(groupN, gender, bw){
+  if(+groupN !== 1) return "без весовой категории";
+  if(!gender || !bw) return "";
+  if(gender==="М") return bw<=80 ? "до 80 кг" : "свыше 80 кг";
+  return bw<=64 ? "до 64 кг" : "свыше 64 кг";
+}
+
+function refreshHints(){
+  const age = ageAtEvent(), gender = $("gender").value;
+  const ageH = $("ageHint");
+  if(age!=null){
+    ageH.textContent = `Возраст на дату турнира: ${age}`;
+    ageH.className = "hint";
+  } else ageH.textContent = "";
+
+  /* подсказка и автоподстановка группы */
+  const mg = matchedGroup(age, gender);
+  const gH = $("groupHint");
+  if(mg!=null){
+    if(!groupSel.value) groupSel.value = mg;
+    if(+groupSel.value > mg){
+      gH.textContent = `По возрасту вам соответствует группа не старше ${mg}. Заявляться можно только в группы 1–${mg}.`;
+      gH.className = "hint warn";
+    } else {
+      gH.textContent = `Ваша группа по возрасту: ${mg}. Разрешается заявиться в любую из групп 1–${mg}.`;
+      gH.className = "hint good";
+    }
+  }
+
+  /* минимальный вес гирь: блокируем клейма ниже минимума */
+  const min = minKb(groupSel.value, gender);
+  kbWrap.querySelectorAll(".kb-badge").forEach(b=>{
+    const dis = min!=null && +b.dataset.w < min;
+    b.classList.toggle("dis", dis);
+    if(dis && b.classList.contains("sel")){ b.classList.remove("sel"); kbInput.value=""; }
+  });
+  const kbH = $("kbHint");
+  if(min!=null){
+    kbH.textContent = kbInput.value
+      ? `Выбрано: ${kbInput.value} кг (минимум для вашей группы — ${min} кг).`
+      : `Минимальный вес гирь для вашей группы — ${min} кг.`;
+    kbH.className = kbInput.value ? "hint good" : "hint";
+  }
+
+  /* весовая категория */
+  const bw = parseFloat($("bodyWeight").value);
+  const cat = category(groupSel.value, gender, bw);
+  $("catHint").textContent = cat ? `Весовая категория: ${cat}` : "";
+  $("catHint").className = "hint good";
+}
+["birthDate","gender","group","bodyWeight"].forEach(id => $(id).addEventListener("input", refreshHints));
+
+/* ── Отправка ── */
+const form = $("regForm"), msg = $("formMsg"), btn = $("submitBtn");
+form.addEventListener("submit", async e=>{
+  e.preventDefault();
+  msg.className = "form-msg";
+
+  const age = ageAtEvent(), gender = $("gender").value;
+  const selT = TOURNAMENTS.filter(t=>selectedT.has(t.id));
+  const data = {
+    tournaments: selT.map(t=>t.name).join(" + "),
+    fee: selT.reduce((s,t)=>s+t.fee,0),
+    fio: $("fio").value.trim(),
+    birthDate: $("birthDate").value,
+    age: age,
+    gender: gender,
+    group: groupSel.value,
+    bodyWeight: $("bodyWeight").value,
+    category: category(groupSel.value, gender, parseFloat($("bodyWeight").value)),
+    kbWeight: kbInput.value,
+    city: $("city").value.trim(),
+    club: $("club").value.trim(),
+    email: $("email").value.trim(),
+    phone: $("phone").value.trim(),
+    postAddress: $("postAddress").value.trim(),
+    consentPd: $("consentPd").checked,
+    consentHealth: $("consentHealth").checked,
+    consentPublic: $("consentPublic").checked,
+    website: form.website.value  /* honeypot */
+  };
+
+  /* валидация */
+  const fail = t => { msg.textContent = t; msg.className = "form-msg err"; };
+  if(!selT.length) return fail("Выберите хотя бы один турнир.");
+  if(!data.fio || !data.birthDate || !gender || !data.group || !data.bodyWeight || !data.city || !data.email)
+    return fail("Заполните все обязательные поля, отмеченные *.");
+  if(!data.kbWeight) return fail("Выберите вес гирь.");
+  const mg = matchedGroup(age, gender);
+  if(mg!=null && +data.group > mg) return fail(`По возрасту вы можете заявиться только в группы 1–${mg}.`);
+  const min = minKb(data.group, gender);
+  if(min!=null && +data.kbWeight < min) return fail(`Минимальный вес гирь для вашей группы — ${min} кг.`);
+  if(!data.consentPd || !data.consentHealth) return fail("Необходимо подтвердить оба обязательных согласия.");
+  if(APPS_SCRIPT_URL.startsWith("ВСТАВЬТЕ")) return fail("Приём заявок ещё не подключён: организатору нужно указать URL Apps Script в настройках сайта.");
+
+  btn.disabled = true; btn.textContent = "Отправляем…";
+  try{
+    const r = await fetch(APPS_SCRIPT_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"text/plain;charset=utf-8" }, /* без preflight */
+      body: JSON.stringify(data)
+    });
+    const res = await r.json();
+    if(res.ok){
+      msg.textContent = "Заявка принята! Подтверждение и реквизиты оплаты отправлены на вашу почту. Не забудьте оплатить взнос по QR своего турнира и отправить чек. До встречи на помосте 💪";
+      msg.className = "form-msg ok";
+      form.reset(); kbWrap.querySelectorAll(".kb-badge").forEach(x=>x.classList.remove("sel")); kbInput.value="";
+      selectedT.clear(); tWrap.querySelectorAll(".t-card").forEach(x=>{x.classList.remove("sel");x.setAttribute("aria-checked","false");}); renderPay();
+      loadParticipants();
+    } else fail(res.error || "Не удалось сохранить заявку. Попробуйте ещё раз.");
+  }catch(err){
+    fail("Ошибка соединения. Проверьте интернет и попробуйте ещё раз.");
+  }finally{
+    btn.disabled = false; btn.textContent = "Отправить заявку";
+  }
+});
+
+/* ── Список участников ── */
+async function loadParticipants(){
+  const empty = $("pEmpty"), tbl = $("pTable"), body = $("pBody"), cnt = $("pCount");
+  if(APPS_SCRIPT_URL.startsWith("ВСТАВЬТЕ")){
+    empty.textContent = "Список участников появится после подключения приёма заявок.";
+    cnt.textContent = "0"; return;
+  }
+  try{
+    const r = await fetch(APPS_SCRIPT_URL);
+    const res = await r.json();
+    const list = res.participants || [];
+    cnt.textContent = res.total != null ? res.total : list.length;
+    if(!list.length){ empty.textContent = "Пока пусто. Первое имя в протоколе запоминают — впишите своё."; tbl.style.display="none"; return; }
+    body.innerHTML = list.map((p,i)=>
+      `<tr><td>${i+1}</td><td><b>${esc(p.fio)}</b></td><td>${esc(p.city||"")}</td>
+       <td>${esc(String(p.group||""))}</td><td>${esc(String(p.kbWeight||""))} кг</td><td>${esc(p.category||"")}</td><td>${esc(shortT(p.tournaments||""))}</td></tr>`).join("");
+    tbl.style.display=""; empty.style.display="none";
+  }catch(e){
+    empty.textContent = "Не удалось загрузить список. Обновите страницу.";
+  }
+}
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function shortT(s){ return String(s).replace("Ко Всероссийскому дню физкультурника","День физкультурника").replace("К 141-й годовщине гиревого спорта","141 лет гиревому спорту"); }
+loadParticipants();
+</script>
+</body>
+</html>
