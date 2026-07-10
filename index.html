@@ -498,12 +498,12 @@ const EVENT_DATE = new Date("2026-08-08");        // дата турнира (в
 
 /* Турниры: заявка общая, взнос и QR — свои у каждого */
 const TOURNAMENTS = [
-  { id:"ФИЗК", name:"Ко Всероссийскому дню физкультурника", fee:2000, qr:"qr/qr-fizkulturnik.png" },
-  { id:"141",  name:"К 141-й годовщине гиревого спорта",    fee:4000, qr:"qr/qr-141.png" }
+  { id:"ФИЗК", name:"Ко Всероссийскому дню физкультурника", fee:2000 },
+  { id:"141",  name:"К 141-й годовщине гиревого спорта",    fee:4000 }
 ];
 const PAY_CARD   = "2202 2061 5850 1465";
 const PAY_HOLDER = "Сбербанк, держатель — Сергей Леонидович Р.";
-const PAY_NOTE   = "Чек об оплате отправьте в Max по номеру +7 914 567-94-82 или на rsl32@mail.ru, указав своё ФИО.";
+const PAY_NOTE   = "Чек об оплате отправьте в Max по номеру +7 914 567-94-82 или на rsl32@mail.ru.";
 const KB_WEIGHTS = [4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36];
 
 /* Группы по положению: [возраст М, возраст Ж, мин. гиря М, мин. гиря Ж] */
@@ -558,15 +558,12 @@ function renderPay(){
   const total = sel.reduce((s,t)=>s+t.fee,0);
   payBox.innerHTML =
     `<h4>Стартовый взнос</h4>
-     <div class="pay-total">К оплате: ${total.toLocaleString("ru-RU")} ₽ ${sel.length>1?"(двумя отдельными переводами по каждому турниру)":""}</div>
-     <p>Перевод на карту:</p>
+     <div class="pay-total">К оплате: ${total.toLocaleString("ru-RU")} ₽ ${sel.length>1?"(двумя отдельными переводами — по каждому турниру свой)":""}</div>
+     <p>Перевод на карту Сбербанка:</p>
      <div class="pay-card-num">${PAY_CARD}</div>
      <p>${PAY_HOLDER}</p>
-     <p><b>Важно:</b> у каждого турнира свой QR-код — оплачивайте по QR выбранного турнира.</p>
-     <div class="qr-row">` +
-     sel.map(t=>`<div class="qr-item"><img src="${t.qr}" alt="QR — ${esc(t.name)}" onerror="this.style.display='none'">${esc(t.name)}<br><b>${t.fee.toLocaleString("ru-RU")} ₽</b></div>`).join("") +
-     `</div>
-     <p style="margin-top:12px">${PAY_NOTE}</p>`;
+     <p><b>Важно:</b> в сообщении с чеком укажите ФИО и название турнира${sel.length>1?" — по каждому переводу отдельный чек":""}.</p>
+     <p style="margin-top:10px">${PAY_NOTE}</p>`;
   payBox.style.display = "";
 }
 
@@ -712,7 +709,7 @@ form.addEventListener("submit", async e=>{
     });
     const res = await r.json();
     if(res.ok){
-      msg.textContent = "Заявка принята, вы в протоколе! Теперь оплатите взнос по реквизитам выше (QR своего турнира) и отправьте чек в Max +7 914 567-94-82 или на rsl32@mail.ru. До встречи на помосте 💪";
+      msg.textContent = "Заявка принята, вы в протоколе! Теперь переведите взнос на карту (реквизиты выше) и отправьте чек с вашим ФИО и названием турнира в Max +7 914 567-94-82 или на rsl32@mail.ru. До встречи на помосте 💪";
       msg.className = "form-msg ok";
       form.reset(); kbWrap.querySelectorAll(".kb-badge").forEach(x=>x.classList.remove("sel")); kbInput.value="";
       selectedT.clear(); tWrap.querySelectorAll(".t-card").forEach(x=>{x.classList.remove("sel");x.setAttribute("aria-checked","false");}); renderPay();
