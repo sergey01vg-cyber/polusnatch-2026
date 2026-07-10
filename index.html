@@ -624,7 +624,7 @@ function category(groupN, gender, bw){
   return bw<=64 ? "до 64 кг" : "свыше 64 кг";
 }
 
-function refreshHints(){
+function refreshHints(autoGroup){
   const age = ageAtEvent(), gender = $("gender").value;
   const ageH = $("ageHint");
   if(age!=null){
@@ -636,7 +636,7 @@ function refreshHints(){
   const mg = matchedGroup(age, gender);
   const gH = $("groupHint");
   if(mg!=null){
-    if(!groupSel.value) groupSel.value = mg;
+    if(autoGroup || !groupSel.value) groupSel.value = mg;   /* группа подставляется сама по дате рождения и полу */
     if(+groupSel.value > mg){
       gH.textContent = `По возрасту вам соответствует группа не старше ${mg}. Заявляться можно только в группы 1–${mg}.`;
       gH.className = "hint warn";
@@ -667,7 +667,8 @@ function refreshHints(){
   $("catHint").textContent = cat ? `Весовая категория: ${cat}` : "";
   $("catHint").className = "hint good";
 }
-["birthDate","gender","group","bodyWeight"].forEach(id => $(id).addEventListener("input", refreshHints));
+["birthDate","gender"].forEach(id => $(id).addEventListener("input", ()=>refreshHints(true)));   /* эти поля определяют группу */
+["group","bodyWeight"].forEach(id => $(id).addEventListener("input", ()=>refreshHints(false)));  /* ручной выбор группы уважаем */
 
 /* ── Отправка ── */
 const form = $("regForm"), msg = $("formMsg"), btn = $("submitBtn");
