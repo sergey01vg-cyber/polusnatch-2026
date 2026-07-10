@@ -381,7 +381,7 @@ footer a{color:#ff6a5e;font-weight:700}
           <div class="fld">
             <label for="email">Эл. почта <span class="req">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" placeholder="name@mail.ru" required>
-            <div class="hint">Пришлём подтверждение и реквизиты — и больше ничего.</div>
+            <div class="hint">Нужна оргкомитету для связи по вопросам турнира.</div>
           </div>
           <div class="fld">
             <label for="phone">Телефон</label>
@@ -494,7 +494,7 @@ footer a{color:#ff6a5e;font-weight:700}
 
 <footer>
   <div class="wrap">
-    <p><a href="privacy.html">Политика конфиденциальности</a> · Вопросы по регистрации: <a href="mailto:sg@fsegas.com">sg@fsegas.com</a> — отвечаем как люди, а не как робот.</p>
+    <p><a href="privacy.html">Политика конфиденциальности</a> · Вопросы по регистрации: <a href="mailto:sergey01vg@gmail.com">sergey01vg@gmail.com</a> — отвечаем как люди, а не как робот.</p>
   </div>
 </footer>
 
@@ -722,7 +722,7 @@ form.addEventListener("submit", async e=>{
     });
     const res = await r.json();
     if(res.ok){
-      msg.textContent = "Заявка принята! Подтверждение и реквизиты оплаты отправлены на вашу почту. Не забудьте оплатить взнос по QR своего турнира и отправить чек. До встречи на помосте 💪";
+      msg.textContent = "Заявка принята, вы в протоколе! Теперь оплатите взнос по реквизитам выше (QR своего турнира) и отправьте чек в Max +7 914 567-94-82 или на rsl32@mail.ru. До встречи на помосте 💪";
       msg.className = "form-msg ok";
       form.reset(); kbWrap.querySelectorAll(".kb-badge").forEach(x=>x.classList.remove("sel")); kbInput.value="";
       selectedT.clear(); tWrap.querySelectorAll(".t-card").forEach(x=>{x.classList.remove("sel");x.setAttribute("aria-checked","false");}); renderPay();
